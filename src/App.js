@@ -8,7 +8,7 @@ import useSwr from "swr";
 import KeplerGlSchema from 'kepler.gl/schemas';
 import { injectComponents, PanelHeaderFactory } from 'kepler.gl/components';
 // define custom header
-const CustomHeader = () => (<div class="header"> <img src="icon.png" /> <b> Mobble Planner</b></div>);
+const CustomHeader = () => (<div class="header"> <img src="dist/planning/icon.png" /> <b> Mobble Planner</b></div>);
 
 // create a factory
 const myCustomHeaderFactory = () => CustomHeader;
