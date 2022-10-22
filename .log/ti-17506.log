@@ -1,0 +1,39 @@
+[21:56:55.021] Global cache location '/Users/byeongcheollim/Library/Caches/typescript/4.7', safe file path '/opt/homebrew/lib/node_modules/typescript/lib/typingsafelist.json', types map path /opt/homebrew/lib/node_modules/typescript/lib/typesmap.json
+[21:56:55.022] Processing cache location '/Users/byeongcheollim/Library/Caches/typescript/4.7'
+[21:56:55.022] Trying to find '/Users/byeongcheollim/Library/Caches/typescript/4.7/package.json'...
+[21:56:55.022] Finished processing cache location '/Users/byeongcheollim/Library/Caches/typescript/4.7'
+[21:56:55.022] Process id: 17507
+[21:56:55.023] NPM location: /opt/homebrew/Cellar/node/18.7.0/bin/npm (explicit '--npmLocation' not  provided)
+[21:56:55.023] validateDefaultNpmLocation: false
+[21:56:55.023] Npm config file: /Users/byeongcheollim/Library/Caches/typescript/4.7/package.json
+[21:56:55.023] Updating types-registry npm package...
+[21:56:55.023] Exec: /opt/homebrew/Cellar/node/18.7.0/bin/npm install --ignore-scripts types-registry@latest
+[21:56:55.027]     Failed. stdout:
+    stderr:
+    /bin/sh: /opt/homebrew/Cellar/node/18.7.0/bin/npm: No such file or directory
+    
+[21:56:55.027] Updated types-registry npm package
+[21:56:55.027] Types registry file '/Users/byeongcheollim/Library/Caches/typescript/4.7/node_modules/types-registry/index.json' does not exist
+[21:56:55.559] Got install request {"projectName":"/dev/null/inferredProject1*","fileNames":["/opt/homebrew/lib/node_modules/typescript/lib/lib.es5.d.ts","/opt/homebrew/lib/node_modules/typescript/lib/lib.es2015.d.ts","/opt/homebrew/lib/node_modules/typescript/lib/lib.es2016.d.ts","/opt/homebrew/lib/node_modules/typescript/lib/lib.dom.d.ts","/opt/homebrew/lib/node_modules/typescript/lib/lib.dom.iterable.d.ts","/opt/homebrew/lib/node_modules/typescript/lib/lib.webworker.importscripts.d.ts","/opt/homebrew/lib/node_modules/typescript/lib/lib.scripthost.d.ts","/opt/homebrew/lib/node_modules/typescript/lib/lib.es2015.core.d.ts","/opt/homebrew/lib/node_modules/typescript/lib/lib.es2015.collection.d.ts","/opt/homebrew/lib/node_modules/typescript/lib/lib.es2015.generator.d.ts","/opt/homebrew/lib/node_modules/typescript/lib/lib.es2015.iterable.d.ts","/opt/homebrew/lib/node_modules/typescript/lib/lib.es2015.promise.d.ts","/opt/homebrew/lib/node_modules/typescript/lib/lib.es2015.proxy.d.ts","/opt/homebrew/lib/node_modules/typescript/lib/lib.es2015.reflect.d.ts","/opt/homebrew/lib/node_modules/typescript/lib/lib.es2015.symbol.d.ts","/opt/homebrew/lib/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts","/opt/homebrew/lib/node_modules/typescript/lib/lib.es2016.array.include.d.ts","/opt/homebrew/lib/node_modules/typescript/lib/lib.es2016.full.d.ts","/Users/byeongcheollim/workspace/mapbox/keplergl-demo/src/App.js"],"compilerOptions":{"module":1,"target":3,"jsx":1,"allowJs":true,"allowSyntheticDefaultImports":true,"allowNonTsExtensions":true,"noEmitForJsFiles":true,"maxNodeModuleJsDepth":2},"typeAcquisition":{"enable":true,"include":[],"exclude":[]},"unresolvedImports":["@babel/runtime","hoist-non-react-statics","kepler.gl","react-is","react-palm","react-redux"],"projectRootPath":"/Users/byeongcheollim/workspace/mapbox/keplergl-demo/src","kind":"discover"}
+[21:56:55.567] Loaded safelist from types map file '/opt/homebrew/lib/node_modules/typescript/lib/typesmap.json'
+[21:56:55.567] Explicitly included types: []
+[21:56:55.568] Inferred typings from unresolved imports: ["@babel/runtime","hoist-non-react-statics","kepler.gl","react-is","react-palm","react-redux"]
+[21:56:55.568] Result: {"cachedTypingPaths":[],"newTypingNames":["@babel/runtime","hoist-non-react-statics","kepler.gl","react-is","react-palm","react-redux"],"filesToWatch":["/Users/byeongcheollim/workspace/mapbox/keplergl-demo/src/bower_components","/Users/byeongcheollim/workspace/mapbox/keplergl-demo/src/node_modules"]}
+[21:56:55.568] Finished typings discovery: {"cachedTypingPaths":[],"newTypingNames":["@babel/runtime","hoist-non-react-statics","kepler.gl","react-is","react-palm","react-redux"],"filesToWatch":["/Users/byeongcheollim/workspace/mapbox/keplergl-demo/src/bower_components","/Users/byeongcheollim/workspace/mapbox/keplergl-demo/src/node_modules"]}
+[21:56:55.568] DirectoryWatcher:: Added:: WatchInfo: /Users/byeongcheollim/workspace/mapbox/keplergl-demo/src/bower_components
+[21:56:55.568] DirectoryWatcher:: Added:: WatchInfo: /Users/byeongcheollim/workspace/mapbox/keplergl-demo/src/bower_components 1 undefined Project: /dev/null/inferredProject1* watcher already invoked: false
+[21:56:55.569] Elapsed:: 0.38304100185632706ms DirectoryWatcher:: Added:: WatchInfo: /Users/byeongcheollim/workspace/mapbox/keplergl-demo/src/bower_components 1 undefined Project: /dev/null/inferredProject1* watcher already invoked: false
+[21:56:55.569] DirectoryWatcher:: Added:: WatchInfo: /Users/byeongcheollim/workspace/mapbox/keplergl-demo/src/node_modules
+[21:56:55.569] DirectoryWatcher:: Added:: WatchInfo: /Users/byeongcheollim/workspace/mapbox/keplergl-demo/src/node_modules 1 undefined Project: /dev/null/inferredProject1* watcher already invoked: false
+[21:56:55.569] Elapsed:: 0.031207997351884842ms DirectoryWatcher:: Added:: WatchInfo: /Users/byeongcheollim/workspace/mapbox/keplergl-demo/src/node_modules 1 undefined Project: /dev/null/inferredProject1* watcher already invoked: false
+[21:56:55.569] Installing typings ["@babel/runtime","hoist-non-react-statics","kepler.gl","react-is","react-palm","react-redux"]
+[21:56:55.569] '@babel/runtime':: Entry for package 'babel__runtime' does not exist in local types registry - skipping...
+[21:56:55.569] 'hoist-non-react-statics':: Entry for package 'hoist-non-react-statics' does not exist in local types registry - skipping...
+[21:56:55.569] 'kepler.gl':: Entry for package 'kepler.gl' does not exist in local types registry - skipping...
+[21:56:55.569] 'react-is':: Entry for package 'react-is' does not exist in local types registry - skipping...
+[21:56:55.569] 'react-palm':: Entry for package 'react-palm' does not exist in local types registry - skipping...
+[21:56:55.569] 'react-redux':: Entry for package 'react-redux' does not exist in local types registry - skipping...
+[21:56:55.569] All typings are known to be missing or invalid - no need to install more typings
+[21:56:55.569] Sending response:
+    {"projectName":"/dev/null/inferredProject1*","typeAcquisition":{"enable":true,"include":[],"exclude":[]},"compilerOptions":{"module":1,"target":3,"jsx":1,"allowJs":true,"allowSyntheticDefaultImports":true,"allowNonTsExtensions":true,"noEmitForJsFiles":true,"maxNodeModuleJsDepth":2},"typings":[],"unresolvedImports":["@babel/runtime","hoist-non-react-statics","kepler.gl","react-is","react-palm","react-redux"],"kind":"action::set"}
+[21:56:55.570] Response has been sent.

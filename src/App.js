@@ -3,16 +3,27 @@ import keplerGlReducer from "kepler.gl/reducers";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { taskMiddleware } from "react-palm/tasks";
 import { Provider, useDispatch } from "react-redux";
-import KeplerGl from "kepler.gl";
 import { addDataToMap } from "kepler.gl/actions";
 import useSwr from "swr";
+import KeplerGlSchema from 'kepler.gl/schemas';
+import { injectComponents, PanelHeaderFactory } from 'kepler.gl/components';
+// define custom header
+const CustomHeader = () => (<div class="header"> <img src="icon.png" /> <b> Mobble Planner</b></div>);
 
+// create a factory
+const myCustomHeaderFactory = () => CustomHeader;
+
+// Inject custom header into Kepler.gl,
+const KeplerGl = injectComponents([
+  [PanelHeaderFactory, myCustomHeaderFactory]
+]);
+
+// render KeplerGl, it will render your custom header
 const reducers = combineReducers({
   keplerGl: keplerGlReducer
 });
 
 const store = createStore(reducers, {}, applyMiddleware(taskMiddleware));
-
 export default function App() {
   return (
     <Provider store={store}>
@@ -107,7 +118,7 @@ function Map() {
 
   return (
     <KeplerGl
-      id="covid"
+      id="traveltime"
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API}
       width={window.innerWidth}
       height={window.innerHeight}
