@@ -6,9 +6,9 @@ import { useDispatch } from "react-redux";
 import KeplerGlSchema from 'kepler.gl/schemas';
 import { injectComponents, PanelHeaderFactory } from 'kepler.gl/components';
 import config from './config.json';
-import { processCsvData } from 'kepler.gl/processors';
+import { processCsvData, processRowObject } from 'kepler.gl/processors';
 import { csv } from 'd3-request';
-import url from './geumho.csv'
+import url from './demand-planner.json'
 function csvToJson(csv_string) {
 
   // 1. 문자열을 줄바꿈으로 구분 => 배열에 저장
@@ -60,8 +60,8 @@ function csvToJson(csv_string) {
 const customTheme = {
   sidePanelBg: '#1f1d2c'
 }
-const CustomHeader = () => (<div class="header"> <img src="dist/planning/icon.png" /> <b> Mobble Planner</b></div>);
-//const CustomHeader = (state) => (<div className="header"> <img src="icon.png" /><b> Mobble Planner</b></div>);
+//const CustomHeader = () => (<div class="header"> <img src="dist/planning/icon.png" /> <b> Mobble Planner</b></div>);
+const CustomHeader = (state) => (<div className="header"> <img src="icon.png" /><b> Mobble Planner</b></div>);
 
 // create a factory
 const myCustomHeaderFactory = () => CustomHeader;
@@ -73,11 +73,12 @@ const getMapConfig = (keplerGlInstance) => {
   return KeplerGlSchema.getConfigToSave(keplerGlInstance);
 }
 
-const data = csv(url, function (err, data) {
-  console.log(data);
-  data = data.toString()
-  return csvToJson(data)
-})
+const data = processRowObject(url)
+//const data = csv(url, function (err, data) {
+//console.log(data);
+//data = data.toString()
+//return csvToJson(data)
+//})
 function Map(props) {
   //console.log(props.keplerGl)
   const dispatch = useDispatch();
