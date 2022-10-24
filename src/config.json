@@ -13,8 +13,8 @@
                     ],
                     "type": "timeRange",
                     "value": [
-                        1658373385991.9424,
-                        1658380261991.9421
+                        1658364909458,
+                        1658395977458
                     ],
                     "enlarged": true,
                     "plotType": "histogram",
