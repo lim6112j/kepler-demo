@@ -60,8 +60,8 @@ function csvToJson(csv_string) {
 const customTheme = {
   sidePanelBg: '#1f1d2c'
 }
-//const CustomHeader = () => (<div class="header"> <img src="dist/planning/icon.png" /> <b> Mobble Planner</b></div>);
-const CustomHeader = (state) => (<div className="header"> <img src="icon.png" /><b> Mobble Planner</b></div>);
+const CustomHeader = () => (<div class="header"> <img src="dist/planning/icon.png" /> <b> Mobble Planner</b></div>);
+//const CustomHeader = (state) => (<div className="header"> <img src="icon.png" /><b> Mobble Planner</b></div>);
 
 // create a factory
 const myCustomHeaderFactory = () => CustomHeader;
