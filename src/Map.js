@@ -94,12 +94,12 @@ function Map(props) {
   //});
 
   //TODO getting config
-  //React.useEffect(() => {
-  ////console.log('callback called')
-  //if (props.keplerGl.TravelTime !== undefined) {
-  //console.log(getMapConfig(props.keplerGl.TravelTime))
-  //}
-  //}, [props.keplerGl.TravelTime])
+  React.useEffect(() => {
+    //console.log('callback called')
+    if (props.keplerGl.TravelTime !== undefined) {
+      console.log(getMapConfig(props.keplerGl.TravelTime))
+    }
+  }, [props.keplerGl.TravelTime])
 
 
 

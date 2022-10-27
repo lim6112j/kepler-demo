@@ -13,8 +13,8 @@
                     ],
                     "type": "timeRange",
                     "value": [
-                        1658364909458,
-                        1658395977458
+                        1658366117487.3574,
+                        1658370044487.3572
                     ],
                     "enlarged": true,
                     "plotType": "histogram",
@@ -53,7 +53,7 @@
                                     "#00939C"
                                 ]
                             },
-                            "radius": 10
+                            "radius": 64.9
                         },
                         "textLabel": [
                             {
@@ -110,7 +110,7 @@
                                 ],
                                 "reversed": true
                             },
-                            "radius": 10
+                            "radius": 73.5
                         },
                         "textLabel": [
                             {
@@ -236,10 +236,10 @@
         "mapState": {
             "bearing": 24,
             "dragRotate": true,
-            "latitude": 37.488490213622455,
-            "longitude": 126.48705990756015,
+            "latitude": 37.48521235,
+            "longitude": 126.48585125,
             "pitch": 50,
-            "zoom": 12.084254351576167,
+            "zoom": 12,
             "isSplit": false
         },
         "mapStyle": {
