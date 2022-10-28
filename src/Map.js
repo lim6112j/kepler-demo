@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import { connect } from "react-redux";
 import { addDataToMap } from "kepler.gl/actions";
 import useSwr from "swr";
@@ -9,6 +9,8 @@ import config from './config.json';
 import { processCsvData, processRowObject } from 'kepler.gl/processors';
 import { csv } from 'd3-request';
 import url from './demand-planner.json'
+import downloadJsonFile from './download'
+import styled from 'styled-components'
 function csvToJson(csv_string) {
 
   // 1. 문자열을 줄바꿈으로 구분 => 배열에 저장
@@ -60,7 +62,7 @@ function csvToJson(csv_string) {
 const customTheme = {
   sidePanelBg: '#1f1d2c'
 }
-const CustomHeader = () => (<div class="header"> <img src="dist/planning/icon.png" /> <b> Mobble Planner</b></div>);
+const CustomHeader = () => (<div className="header"> <img src="dist/planning/icon.png" /> <b> Mobble Planner</b></div>);
 //const CustomHeader = (state) => (<div className="header"> <img src="icon.png" /><b> Mobble Planner</b></div>);
 
 // create a factory
@@ -79,6 +81,22 @@ const data = processRowObject(url)
 //data = data.toString()
 //return csvToJson(data)
 //})
+//
+const Button = styled.button`
+  /* Adapt the colors based on primary prop */
+  position: absolute;
+  right: 100;
+  top: 10;
+  background: ${props => props.primary ? "palevioletred" : "white"};
+  color: ${props => props.primary ? "white" : "palevioletred"};
+
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+z-index:1
+`;
 function Map(props) {
   //console.log(props.keplerGl)
   const dispatch = useDispatch();
@@ -94,17 +112,22 @@ function Map(props) {
   //});
 
   //TODO getting config
-  React.useEffect(() => {
-    //console.log('callback called')
-    if (props.keplerGl.TravelTime !== undefined) {
-      console.log(getMapConfig(props.keplerGl.TravelTime))
-    }
-  }, [props.keplerGl.TravelTime])
+  //React.useEffect(() => {
+  ////console.log('callback called')
+  //if (props.keplerGl.TravelTime !== undefined) {
+  //console.log(getMapConfig(props.keplerGl.TravelTime))
+  //}
+  //}, [props.keplerGl.TravelTime])
 
 
 
   //const keplerGl = this.props.keplerGl
-  //const mapToSave = KeplerGlSchema.save(keplerGl.TravelTime);
+  const mapToSave = useCallback(() => {
+    console.log('saving ...')
+    const mapConfig = KeplerGlSchema.getConfigToSave(props.keplerGl.TravelTime);
+    KeplerGlSchema.save(props.keplerGl.TravelTime)
+    downloadJsonFile(mapConfig, 'kepler.gl.json');
+  }, [props.keplerGl.TravelTime])
   React.useEffect(() => {
     if (data) {
       dispatch(
@@ -127,13 +150,16 @@ function Map(props) {
   }, [dispatch]);
 
   return (
-    <KeplerGl
-      id="TravelTime"
-      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API}
-      width={window.innerWidth}
-      height={window.innerHeight}
-      theme={customTheme}
-    />
+    <div>
+      <Button onClick={mapToSave}>cllick</Button>
+      <KeplerGl
+        id="TravelTime"
+        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API}
+        width={window.innerWidth}
+        height={window.innerHeight}
+        theme={customTheme}
+      />
+    </div>
   );
 }
 const mapStateToProps = state => state
