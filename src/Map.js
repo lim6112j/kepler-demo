@@ -60,10 +60,10 @@ function csvToJson(csv_string) {
   return jsonArray;
 }
 const customTheme = {
-  sidePanelBg: '#1f1d2c'
+  sidePanelBg: '#1f1d2c',
 }
-const CustomHeader = () => (<div className="header"> <img src="dist/planning/icon.png" /> <b> Mobble Planner</b></div>);
-//const CustomHeader = (state) => (<div className="header"> <img src="icon.png" /><b> Mobble Planner</b></div>);
+//const CustomHeader = () => (<div className="header"> <img src="dist/planning/icon.png" /> <b> Mobble Planner</b></div>);
+const CustomHeader = (state) => (<div className="header"> <img src="icon.png" /><b> Mobble Planner</b></div>);
 
 // create a factory
 const myCustomHeaderFactory = () => CustomHeader;
@@ -85,9 +85,10 @@ const data = processRowObject(url)
 const Button = styled.button`
   /* Adapt the colors based on primary prop */
   position: absolute;
-  right: 100;
+  left: 50%;
+  transform: translate(-50%, -50%);
   top: 10;
-  background: ${props => props.primary ? "palevioletred" : "white"};
+  background-color: #123322;
   color: ${props => props.primary ? "white" : "palevioletred"};
 
   font-size: 1em;
@@ -95,7 +96,7 @@ const Button = styled.button`
   padding: 0.25em 1em;
   border: 2px solid palevioletred;
   border-radius: 3px;
-z-index:1
+  z-index:1
 `;
 function Map(props) {
   //console.log(props.keplerGl)
@@ -122,12 +123,13 @@ function Map(props) {
 
 
   //const keplerGl = this.props.keplerGl
-  const mapToSave = useCallback(() => {
-    console.log('saving ...')
-    const mapConfig = KeplerGlSchema.getConfigToSave(props.keplerGl.TravelTime);
-    KeplerGlSchema.save(props.keplerGl.TravelTime)
-    downloadJsonFile(mapConfig, 'kepler.gl.json');
-  }, [props.keplerGl.TravelTime])
+  const mapToSave = () => {
+    console.log(props)
+    //const mapConfig = KeplerGlSchema.getConfigToSave(props.keplerGl.TravelTime); //  config only
+    const mapNconfig = KeplerGlSchema.save(props.keplerGl.TravelTime) // data & config
+    //downloadJsonFile(mapConfig, 'kepler.gl.json');
+    downloadJsonFile(mapNconfig, 'kepler.gl.data.json')
+  }
   React.useEffect(() => {
     if (data) {
       dispatch(
@@ -151,13 +153,14 @@ function Map(props) {
 
   return (
     <div>
-      <Button onClick={mapToSave}>cllick</Button>
+      <Button onClick={mapToSave}>Save Data & Config</Button>
       <KeplerGl
         id="TravelTime"
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API}
         width={window.innerWidth}
         height={window.innerHeight}
         theme={customTheme}
+      //theme="light"
       />
     </div>
   );
